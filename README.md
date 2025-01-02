@@ -1,8 +1,8 @@
-# Knowledge-Guided Meta-Learning for Protein Fitness Prediction
+# 🧬 Knowledge-Guided Meta-Learning for Protein Fitness Prediction
 
 This repository explores knowledge-guided meta-learning for protein fitness prediction. The approach investigates combining meta-learning and domain knowledge for improved protein fitness prediction.
 
-## 🚀 How to Run
+## ⚡ Quick Start
 
 To setup and execute a meta-learning experiment, use:
 
@@ -28,7 +28,7 @@ python run_metasupervised.py experiment_group=test logging.type=terminal surroga
 
 ```
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 
@@ -46,7 +46,7 @@ python run_metasupervised.py experiment_group=test logging.type=terminal surroga
 
 ```
 
-## Requirements
+## 🛠️ Requirements
 
 The code was tested with Python 3.10.11. Install requirements:
 
@@ -56,8 +56,8 @@ pip install -r requirements.txt
 
 ```
 
-## Acknowledgments
+## ✨ Acknowledgments
 
 This project was developed to explore the integration of domain knowledge with meta-learning approaches for protein fitness prediction.
 
-Note: This is a proof-of-concept implementation for research exploration purposes.
+📝 Note: This is a proof-of-concept implementation for research exploration purposes.
