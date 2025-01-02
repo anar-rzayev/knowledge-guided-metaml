@@ -24,8 +24,8 @@ class ExperimentRunner:
         
     def setup_environment(self) -> None:
         """Initialize experiment environment"""
-        from meta.utils import display_info, set_seeds, get_current_git_commit_hash
-        from meta.tools.logger import get_logger_from_config
+        from protein_meta.utils import display_info, set_seeds, get_current_git_commit_hash
+        from protein_meta.tools.logger import get_logger_from_config
         
         display_info(self.cfg)
         set_seeds(self.cfg.seed)
@@ -45,7 +45,7 @@ class ExperimentRunner:
         
     def setup_logging(self):
         """Configure experiment logging"""
-        from meta.tools.logger import get_logger_from_config
+        from protein_meta.tools.logger import get_logger_from_config
         
         neptune_tags = [
             str(self.cfg.task.task_name),
@@ -82,7 +82,7 @@ class ExperimentRunner:
 
     def evaluate_model(self, label: str = "metrics") -> Dict[str, float]:
         """Run model evaluation"""
-        from meta.evaluation import run_metasupervised_evaluation
+        from protein_meta.evaluation import run_metasupervised_evaluation
         
         metrics, _ = run_metasupervised_evaluation(self.task, self.surrogate)
         logger.info(
