@@ -1,72 +1,63 @@
 # Knowledge-Guided Meta-Learning for Protein Fitness Prediction
 
-This repository implements a meta-learning framework for predicting protein fitness. By leveraging protein language models (PLMs) and integrating domain knowledge, the framework excels in low-data scenarios and achieves competitive results on benchmark datasets like ProteinGym.
+This repository explores knowledge-guided meta-learning for protein fitness prediction. The approach investigates combining meta-learning and domain knowledge for improved protein fitness prediction.
 
----
+## 🚀 How to Run
 
-## 🚀 Quick Start
+To setup and execute a meta-learning experiment, use:
 
-### Installation
+```bash
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/anar-rzayev/knowledge-guided-metaml.git
-   cd knowledge-guided-metaml
-   ```
-
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### Running Experiments
-
-1. **Train the Meta-Learner:**
-   ```bash
-   python train_meta.py --config configs/meta_config.yaml
-   ```
-
-2. **Fine-Tune for a New Task:**
-   ```bash
-   python fine_tune.py --task new_task.yaml
-   ```
-
-3. **Evaluate the Model:**
-   ```bash
-   python evaluate.py --dataset protein_gym --config configs/eval_config.yaml
-   ```
-
-## 📁 Project Structure
+bash ./run_meta_supervised.sh
 
 ```
-├── configs/        # Configuration files
-├── data/          # Data processing utilities
-├── models/        # Model architectures
-├── utils/         # Helper functions
-└── scripts/       # Training and evaluation scripts
+
+The config files can be found at:
+
+- config/meta_supervised.yaml (experiment settings)
+
+- config/task/gym_supervised.yaml (evaluation)
+
+- config/model/meta.yaml (model and training)
+
+For debugging purposes:
+
+```bash
+
+python run_metasupervised.py experiment_group=test logging.type=terminal surrogate.train_config.batch_sz=2 surrogate.train_config.support_size=2 surrogate.train_config.query_size=4
+
 ```
 
-## 🛠️ Implementation Details
+## Project Structure
 
-The framework implements several key components:
-
-- **ESM2 Embeddings**: Utilizes ESM2-8M for protein sequence embeddings
-- **Knowledge Integration**: Axial attention mechanism for incorporating domain knowledge
-- **Sub-sampled Fine-tuning**: Efficient adaptation to new tasks while preventing memorization
-- **Preference-based Learning**: Ranking loss for better fitness prediction
-
-## 🔧 Configuration
-
-Key hyperparameters can be modified in `configs/meta_config.yaml`:
-
-```yaml
-model:
-  hidden_dim: 768
-  n_layers: 5
-  n_heads: 4
-  
-training:
-  batch_size: 4
-  lr: 6e-5
-  max_steps: 50000
 ```
+
+├── config/              # Configuration files
+
+├── docker/             # Dockerfile and environment setup
+
+├── protein_meta/       # Core implementation
+
+├── requirements.txt    # Dependencies
+
+├── run_meta_supervised.sh    # Training script
+
+└── run_metasupervised.py    # Main execution script
+
+```
+
+## Requirements
+
+The code was tested with Python 3.10.11. Install requirements:
+
+```bash
+
+pip install -r requirements.txt
+
+```
+
+## Acknowledgments
+
+This project was developed to explore the integration of domain knowledge with meta-learning approaches for protein fitness prediction.
+
+Note: This is a proof-of-concept implementation for research exploration purposes.
